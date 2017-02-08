@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #copyButton
+    {
+      width: auto;
+      background: green;
+      color: white;
+      border: 0;
+      padding: 10px 20px; 
+      font-size: 18px;
+    }
+    #copyButton:hover
+    {
+      background: gray;
+      margin-left: 15px;
+      -webkit-transition: margin-left 0.5s;
+      transition: margin-left 0.5s;
+    }
+    #copyButton:link
+    {
+      background: #012300;
+    }
+    #copyButton:active
+    {
+      background: #034901;
+    }
+    #reemplazo
+    {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+    }
+    #listoCopy
+    {
+      font-size: 12px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+</style>
+</head>
+<body>
+    <p id="reemplazo"></p>
+    <button id="copyButton" onclick="copyHref()">Copiar Link</button>
+    <p id="listoCopy"></p>
+<script>
+    var direc = document.getElementById("reemplazo").innerHTML = window.location.href;
+	  function copyHref()
+    {
+      var aux = document.createElement("input");
+      aux.setAttribute("value", direc);
+      document.body.appendChild(aux)
+      aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+        document.getElementById("listoCopy").innerHTML = "Ahora ya puede compartir esta dirección, pegela en cualquier lugar que desee usando la convinación de teclas crt+v para pegar esta dirección.";
+    }
+</script>	
+</body>
+</html>
